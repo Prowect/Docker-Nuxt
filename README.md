@@ -24,6 +24,7 @@ services:
             - "./src:/app"
         ports:
             - "3000:3000"
+            - "24678:24678"
 ```
 
 **docker-compose-production.yml**
