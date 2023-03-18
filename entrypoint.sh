@@ -26,12 +26,13 @@ echo -e "${BASH_COLOR_DARK}Starting Docker ${BASH_COLOR_SUCCESS}Nuxt${BASH_COLOR
 # Setup nuxt if not present
 NUXT_CONFIG_FILE="/app/nuxt.config.ts"
 NODE_MODULES_DIRECTORY="/app/node_modules"
+NUXT_SERVER_INDEX_FILE="/app/.output/server/index.mjs"
 if [[ ! -f "$NUXT_CONFIG_FILE" ]]; then
     echo -e "${BASH_COLOR_WARNING}No nuxt source files detected. Installing a new nuxt instance ...${BASH_COLOR_RESET}"
 
     npx nuxi init . && npm install
     echo -e "${BASH_COLOR_SUCCESS}Nuxt has been installed${BASH_COLOR_RESET}"
-elif [[ ! -d "$COMPOSER_DIRECTORY" ]]; then
+elif [[ ! -d "$NODE_MODULES_DIRECTORY" ]] && [[ ! -f "$NUXT_SERVER_INDEX_FILE" ]]; then
     echo -e "${BASH_COLOR_WARNING}Installing node modules ...${BASH_COLOR_RESET}"
 
     npm install
