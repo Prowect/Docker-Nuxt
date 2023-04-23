@@ -52,7 +52,7 @@ FROM prowect/nuxt as build
 COPY ./src /app
 
 # automatic magic builds your Nuxt application with dependencies, etc.
-RUN /main-entrypoint.sh echo "Build complete"
+RUN /main-entrypoint.sh build
 
 # BUNDLE
 FROM prowect/nuxt
