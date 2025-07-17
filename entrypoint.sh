@@ -30,7 +30,7 @@ NUXT_SERVER_INDEX_FILE="/app/.output/server/index.mjs"
 if [[ ! -f "$NUXT_CONFIG_FILE" ]]; then
     echo -e "${BASH_COLOR_WARNING}No nuxt source files detected. Installing a new nuxt instance ...${BASH_COLOR_RESET}"
 
-    npx nuxi init . && npm install
+    npm create nuxt . --yes -- --yes --force --packageManager=npm --gitInit=false --no-modules
     echo -e "${BASH_COLOR_SUCCESS}Nuxt has been installed${BASH_COLOR_RESET}"
 elif [[ ! -d "$NODE_MODULES_DIRECTORY" ]] && [[ ! -f "$NUXT_SERVER_INDEX_FILE" ]]; then
     echo -e "${BASH_COLOR_WARNING}Installing node modules ...${BASH_COLOR_RESET}"

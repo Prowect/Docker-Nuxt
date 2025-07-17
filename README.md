@@ -4,7 +4,7 @@ This Docker image provides everything you need to set up a Nuxt application. Wit
 
 Following packages are included:
 
- - Node (18.15.0)
+ - Node (24.4.1)
  - NPM
 
 ## Getting started
