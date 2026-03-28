@@ -1,0 +1,9 @@
+node_modules
+.git
+.gitignore
+README.md
+build-and-test.sh
+src/node_modules
+src/.nuxt
+src/.output
+src/.data

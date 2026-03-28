@@ -1,11 +1,11 @@
-FROM node:24.4.1-alpine
+FROM node:25.8.2-alpine
 
 LABEL org.opencontainers.image.title="Docker Nuxt by Prowect"
-LABEL org.opencontainers.image.description="Docker image for Nuxt applications"
+LABEL org.opencontainers.image.description="Docker image for Nuxt 4 applications"
 LABEL org.opencontainers.image.authors="office@prowect.com"
 LABEL org.opencontainers.image.source="https://github.com/Prowect/Docker-Nuxt"
 
-RUN npm install -g npm@11.4.2
+RUN npm install -g npm@11.12.1
 
 WORKDIR /app
 

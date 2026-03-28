@@ -4,7 +4,7 @@ This Docker image provides everything you need to set up a Nuxt application. Wit
 
 Following packages are included:
 
- - Node (24.4.1)
+ - Node (25.8.2)
  - NPM
 
 ## Getting started
@@ -25,6 +25,7 @@ services:
         ports:
             - "3000:3000"
             - "24678:24678"
+
 ```
 
 **docker-compose-production.yml**
