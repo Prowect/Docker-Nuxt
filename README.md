@@ -4,8 +4,32 @@ This Docker image provides everything you need to set up a Nuxt application. Wit
 
 Following packages are included:
 
- - Node (25.8.2)
- - NPM
+ - Node (26.13.1 LTS)
+ - NPM (11.21.3)
+
+This image uses Node 26 LTS with a pinned image digest and retains Alpine 3.23
+and npm 11. It contains no NGINX. Existing application dependencies are not upgraded.
+
+## Compatibility tests
+
+Build and test each target architecture explicitly:
+
+```sh
+docker build --platform linux/arm64 -t local/prowect-nuxt:node26-arm64 .
+PLATFORM=linux/arm64 sh ./run-tests.sh local/prowect-nuxt:node26-arm64 /path/to/nuxt-app
+
+docker build --platform linux/amd64 -t local/prowect-nuxt:node26-amd64 .
+PLATFORM=linux/amd64 sh ./run-tests.sh local/prowect-nuxt:node26-amd64 /path/to/nuxt-app
+```
+
+The optional application directory must contain a package-lock.json. Tests copy
+the source without environment files or existing build output, build through the
+image entrypoint, run the application's test script if present, and check SSR,
+JavaScript/CSS assets, HTTP 404 and restart. Runtime containers have no network
+access to external services. Test containers and derived images are removed.
+Use `SMOKE_ROUTES='/ /login /register'`, `SMOKE_TEXT=Allsona` and
+`SMOKE_STATIC=/images/allsona/logo.svg` for application-specific checks.
+These smoke tests do not exercise authenticated backend workflows or browser hydration.
 
 ## Getting started
 
